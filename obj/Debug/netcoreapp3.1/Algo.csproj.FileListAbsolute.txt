@@ -1,0 +1,11 @@
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.exe
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.deps.json
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.runtimeconfig.json
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.runtimeconfig.dev.json
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.dll
+D:\Projects\Algo\bin\Debug\netcoreapp3.1\Algo.pdb
+D:\Projects\Algo\obj\Debug\netcoreapp3.1\Algo.csprojAssemblyReference.cache
+D:\Projects\Algo\obj\Debug\netcoreapp3.1\Algo.AssemblyInfoInputs.cache
+D:\Projects\Algo\obj\Debug\netcoreapp3.1\Algo.AssemblyInfo.cs
+D:\Projects\Algo\obj\Debug\netcoreapp3.1\Algo.dll
+D:\Projects\Algo\obj\Debug\netcoreapp3.1\Algo.pdb
