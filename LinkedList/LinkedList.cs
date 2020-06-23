@@ -8,7 +8,7 @@ namespace Algo.LinkedList
         {
             public int Value;
             public Node Next;
-
+            public Node() {}
             public Node(int item)
             {
                 this.Value = item;
@@ -17,6 +17,7 @@ namespace Algo.LinkedList
 
         private Node _first;
         private Node _last;
+        private int _count;
 
         public void AddFirst(int value) 
         {
@@ -28,6 +29,7 @@ namespace Algo.LinkedList
                 node.Next = _first;
                 _first = node ;
             }
+            _count++;
         }
         public void AddLast(int value)
         {
@@ -39,15 +41,43 @@ namespace Algo.LinkedList
                 _last.Next = node;
                 _last = node;
             }
+            _count++;
         }
 
-        private bool IsEmpty()
+        public void RemoveFirst()
         {
-            return (_first == null);
+            if (IsEmpty()) throw new Exception("No item to remove!");
+
+            if (_first == _last) 
+                _first = _last = null;
+            else 
+                _first = _first.Next;
+            
+            _count--;
         }
-        // deleteFirst
-        // DeleteLast
-        // Contains
+
+        public void RemoveLast()
+        {
+            if (IsEmpty()) throw new Exception("No item to remove!");
+
+            if (_first == _last) 
+            {
+                _first = _last = null;
+            }
+            else
+            {
+                var previous = GetPreviousNode(_last);
+                _last = previous;
+                if (previous != null) _last.Next = null;
+            }
+            _count--;
+        }
+
+        public bool Contains(int item)
+        {
+            return (IndexOf(item) != -1);
+        }
+
         public int IndexOf(int item)
         {
             int counter = 0;
@@ -60,6 +90,25 @@ namespace Algo.LinkedList
                 counter++;
             }
             return -1;
+        }
+
+        public int Size() 
+        {
+            return _count;
+        }
+        private bool IsEmpty()
+        {
+            return (_first == null);
+        }
+        private Node GetPreviousNode(Node node) 
+        {
+            var currentNode = _first;
+            while (currentNode != null)
+            {
+                if (currentNode.Next == node) return currentNode;
+                currentNode = currentNode.Next;
+            }
+            return null;
         }
     }
 
