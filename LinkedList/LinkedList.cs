@@ -100,6 +100,67 @@ namespace Algo.LinkedList
         {
             return (_first == null);
         }
+
+        public int[] ToArray() 
+        {
+            var array = new int[Size()]; 
+            var currentNode = _first;
+            var index = 0;
+
+            for(int i = 0; i < Size(); i++)
+            {
+                array[index++] = currentNode.Value;
+                currentNode = currentNode.Next;
+            }
+            return array;
+        }
+
+        public void Reverse()
+        {
+            /*  method 1
+            var linkedList = new LinkedList();
+
+            var currentNode = _first;
+            while(currentNode != null)
+            {
+                linkedList.AddFirst(currentNode.Value);
+                currentNode = currentNode.Next;
+            }
+
+            _first = linkedList._first;
+            _last = linkedList._last;
+
+            */
+
+            // method 2
+            if (IsEmpty()) return;
+
+            Node reverseNode = null;
+            var currentNode = _first;
+            while (currentNode != null)
+            {
+                var node = new Node(currentNode.Value);
+                if (reverseNode == null) 
+                    reverseNode = node;
+                else
+                {
+                    node.Next = reverseNode;
+                    reverseNode = node;
+                }
+                currentNode = currentNode.Next;
+            }
+
+            _last = new Node(_first.Value);
+            _first = reverseNode;
+        }
+
+        public int GetValueByIndex(int index)
+        {
+            var currentNode = _first;
+            for(int i = 1; i < index; i++)
+                currentNode = currentNode.Next;
+            return currentNode.Value;
+        }
         private Node GetPreviousNode(Node node) 
         {
             var currentNode = _first;
